@@ -11,10 +11,6 @@ const dataLoader = async (url)=>{
     }
 };
 
-
-
-
-
 // ** Display catagories
 
 const displayCategories = async ()=>{
@@ -29,24 +25,33 @@ const displayCategories = async ()=>{
 
     // ** making the ui visible
     news_category.forEach(newsCategory => {
-        const {category_name} = newsCategory;
-        console.log(category_name);
+        const {category_name,category_id} = newsCategory;
+        console.log(typeof category_id);
         // ** list item make and append
         const item = document.createElement('li');
 
         item.innerHTML = `
-        <a href="#" class="mr-4 hover:underline md:mr-6">${category_name}</a>
+        <a onclick="displayNewsByCategory('${category_id}')" href="#" class="mr-4 hover:underline md:mr-6">${category_name}</a>
         `
         categoriesContainer.appendChild(item)
     });
 
-  
-
-   
-    
-
-
 };
+
+// ** Load News by Specific category and display in the ui
+
+const displayNewsByCategory = async (id)=>{
+    // ** specific news loaded
+    const newsLoad = await dataLoader(`https://openapi.programming-hero.com/api/news/category/${id}`);
+    const {data} = newsLoad;
+    // console.log(data)
+
+    const highestToLowestViewNews = data.sort((a,b)=>{return (b.total_view-a.total_view)});
+   
+    highestToLowestViewNews.forEach(news=> {
+        const {} = news;
+    })
+}
 
 displayCategories()
 
