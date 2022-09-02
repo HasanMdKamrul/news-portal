@@ -14,6 +14,7 @@ const dataLoader = async (url)=>{
 // ** Display catagories
 
 const displayCategories = async ()=>{
+    
     // ** where to display data
     const categoriesContainer = document.getElementById('list-items');
     // ** Load category data
@@ -41,6 +42,8 @@ const displayCategories = async ()=>{
 // ** Load News by Specific category and display in the ui
 
 const displayNewsByCategory = async (id)=>{
+    // ** sppiner starts
+    sppinerToggle(true);
     // ** Where to display the news contents
     const newsContainer = document.getElementById('news-content');
     // ** Data found container
@@ -132,7 +135,10 @@ const displayNewsByCategory = async (id)=>{
         `;
         newsContainer.appendChild(divContent)
 
-    })
+    });
+    // ** Sppiner stops
+
+    sppinerToggle(false);
 }
 
 
@@ -185,6 +191,15 @@ const displayNewsDetails = async (id)=>{
     })
     
 
+}
+
+// ** Sppiner toggler
+
+const sppinerToggle = isSpining =>{
+  // ** sppiner
+  const sppinerSection = document.getElementById('sppiner');
+
+  isSpining ? sppinerSection.classList.remove('hidden') : sppinerSection.classList.add('hidden');
 }
 
 displayCategories()
