@@ -14,3 +14,10 @@ const dataLoader = async (url)=>{
 
 // ** Load category data
 
+const catagories = async ()=>{
+    const categoryData = await dataLoader(`https://openapi.programming-hero.com/api/news/categories`);
+    console.log(categoryData)
+};
+
+
+
