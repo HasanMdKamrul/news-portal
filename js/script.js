@@ -87,15 +87,15 @@ const displayNewsByCategory = async (id)=>{
           <dl
             class="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-4 dark:text-white"
           >
-            <div class="flex flex-col items-center justify-center">
-              <dt class="mb-2 text-3xl md:text-4xl font-extrabold">
-                ${total_view ? total_view  : 'N/A'}
+            <div class="flex flex-col items-center justify-between mr-5">
+              <dt class="mb-2 text-3xl md:text-xl lg:text-3xl font-extrabold">
+                ${total_view ? total_view + 'M' : 'N/A'}
               </dt>
               <dd class="font-light text-gray-500 dark:text-gray-700">
-              <i class="fa-sharp fa-solid fa-eye"></i> total view
+                <span><i class="fa-sharp fa-solid fa-eye"></i> <p>total view</p> </span>
               </dd>
             </div>
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center md:ml-3">
                 <img class="w-20 h-20 rounded-full" src="${img ? img : "../logo 2/logo.png"}" alt="">
                 <div class="ml-5 font-medium dark:text-white">
                     <div class="text-sky-200">${name ? name : 'N/A'}</div>
@@ -110,7 +110,7 @@ const displayNewsByCategory = async (id)=>{
                 <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
             </div>
             <div class='flex justify-center items-center' for="my-modal">
-                <label onclick="displayNewsDetails('${_id}')" for="my-modal" class="btn dark:bg-sky-700 text-white modal-button">Author Details</label>
+                <label onclick="displayNewsDetails('${_id}')" for="my-modal" class="btn dark:bg-sky-700 text-white modal-button">News Details</label>
             </div>
             </div>
           </dl>
@@ -161,7 +161,7 @@ const displayNewsDetails = async (id)=>{
           <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
           <dl class="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white">
               <div class="flex flex-col items-center justify-center">
-                  <dt class="mb-2 text-3xl md:text-4xl font-extrabold">${total_view ? total_view  : 'N/A'}</dt>
+                  <dt class="mb-2 text-3xl md:text-4xl font-extrabold">${total_view ? total_view + 'M' : 'N/A'}</dt>
                   <dd class="font-light text-gray-500 dark:text-gray-200">
                 <i class="fa-sharp fa-solid fa-eye"></i> total view
                 </dd>
