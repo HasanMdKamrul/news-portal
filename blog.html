@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+
+    <!-- cdn -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css"
+    />
+    <!-- ** tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="dark:bg-slate-900">
+    <!-- ** header section -->
+    <header>
+      <nav
+        class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800"
+      >
+        <div
+          class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+        >
+          <a href="#" class="flex items-center">
+            <img src="./logo 2/logo.jpg" class="mr-3 h-6 sm:h-9" alt="Logo" />
+            <span
+              class="self-center text-xl font-bold whitespace-nowrap dark:text-white"
+            >
+              News <small class="text-blue-300">24/7</small>
+            </span>
+          </a>
+          <div class="flex items-center lg:order-2">
+            <button
+            id="news-button"
+            
+              class="text-gray-800 dark:text-blue-300 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-0 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+              >News</
+            >
+            <button
+              id="blog-Button"
+              class="text-blue-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-3 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+            >
+              Blog
+            </button>
+            <!-- ** avatar -->
+            <img
+              class="p-1 w-10 h-10 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+              src="./Full Size.jpg"
+              alt="Bordered avatar"
+            />
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- ** Main Section -->
+    <main>
+        <section class="bg-white dark:bg-gray-900">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+                <h2 class="mb-8 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Tech Question & Answer </h2>
+                <div class="grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-2">
+                    <div>
+                        <div class="mb-10">
+                            <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                                <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                                What is the difference between var,let and const?
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400">
+                                All three of them used to declare variables but after the ES6 and ES6+ launched there is almost no use of var. let is used to declare variable which can be re-assigned later but not re-declare. On the other hand const means constant, which is you can declare and assign const together once but later no re-assigning and re-declare is possible. let and const are block scope and they don't hoist. In contrary, var can be re-declare and re-assign easily also can hoist thats why to avoid complications we don't use var very often.
+                            </p>
+                        </div>
+                        <div class="mb-10">                        
+                            <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                                <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                                Arrow function Vs Regular Function?
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400">Arrow function realeased in E6. There are few differences between arrow function and the regular one. One of the major difference between them is this value, if in an object a method is called with arrow function and want to access one of the objects property it coldn't because in arrow function this refers to the global object window. where as if we use regular function this keyword refers to the object whos calling the method.In regular function, function gets hoisting at top.In arrow function, function get hoisted where you define. So, if you call the function before initialisation you will get referenceError.</p>
+                        </div>
+                       
+                    </div>
+                    <div>
+                        <div class="mb-10">
+                            <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                                <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                                difference between map,forEach,filter and find?
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400">All of them are array method.map loops through all the element of an array and runs operation and finaly return an array after the operation. On the other hand forEach does the same this but it can't return anything but can do the operation. Filter method loops through all the elemnet and does a condition fulfil if tts fulfiled it returns an array on the other hand, find loop through all the element the moment it get the element according to condition it stops running and return that element</p>
+                            <p class="text-gray-500 dark:text-gray-400">Feel free to <a href="#" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline" target="_blank" rel="noreferrer">contact us</a> and we'll help you out as soon as we can.</p>
+                        </div>
+                        <div class="mb-10">
+                            <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                                <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                                What is template string?
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400">Template string or template literal is one of the powerful features of ES6. Its the another way of writing text but its more cleaner and most amazing thing is it can run JS expressions</p>
+                            <p class="text-gray-500 dark:text-gray-400">Find out more information by <Link to="/license" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">reading the license</Link>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+    </main>
+    <!-- ** script -->
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <!-- ** Custom script -->
+    <script src="./js/script.js"></script>
+  </body>
+</html>
