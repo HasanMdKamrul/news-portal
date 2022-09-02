@@ -134,8 +134,10 @@ const displayNewsByCategory = async (id)=>{
 
     })
 }
-// ** Load autor data
 
+
+
+// ** News Details
 
 const displayNewsDetails = async (id)=>{
   // ** Where to display 
@@ -153,6 +155,8 @@ const displayNewsDetails = async (id)=>{
       <p class="py-4">
         ${details.length > 300 ? details.slice(0,300) + '...': details}
       </p>
+      <kbd class="px-2 py-1.5 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">${is_trending ? "Trending..." : "Not Trending..."}</kbd>
+      <kbd class="px-2 py-1.5 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">Today's Pick:${is_todays_pick ? "Yes" : "No"}</kbd>
       <div class="flex justify-between items-center">
           <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
           <dl class="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white">
@@ -168,9 +172,9 @@ const displayNewsDetails = async (id)=>{
                   <img class="w-20 h-20 rounded-full" src="${img ? img : "../logo 2/logo.png"}" alt="">
                   <div class="ml-5 font-medium dark:text-white">
                       <div class="text-sky-200">${name ? name : 'N/A'}</div>
-                      <div class="text-sm text-gray-500 dark:text-gray-700">${published_date ? new Date(published_date).toLocaleDateString() : "N/A"}</div>
+                      <div class="text-sm text-gray-500 dark:text-gray-300">${published_date ? new Date(published_date).toLocaleDateString() : "N/A"}</div>
                   </div>
-    </div>
+        </div>
       </div>
       <div class="modal-action">
         <label for="my-modal" class="btn">Okay</label>
