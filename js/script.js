@@ -43,6 +43,8 @@ const displayCategories = async ()=>{
 const displayNewsByCategory = async (id)=>{
     // ** Where to display the news contents
     const newsContainer = document.getElementById('news-content');
+    // ** Data found container
+    const dataFound = document.getElementById('data-found')
     newsContainer.textContent = ``;
     // ** specific news loaded
     const newsLoad = await dataLoader(`https://openapi.programming-hero.com/api/news/category/${id}`);
@@ -50,10 +52,22 @@ const displayNewsByCategory = async (id)=>{
     // console.log(data)
 
     const highestToLowestViewNews = data.sort((a,b)=>{return (b.total_view-a.total_view)});
+
+    const dataFoundSection = document.getElementById('data-found-section');
+    
+
+    if (highestToLowestViewNews.length === 0) {
+      dataFoundSection.classList.remove('hidden')
+      dataFound.innerText = "Data Not Avaiable"
+    } else {
+      dataFoundSection.classList.remove('hidden')
+      dataFound.innerText = highestToLowestViewNews.length;
+    }
    
     highestToLowestViewNews.forEach(news=> {
         console.log(news)
-        const {author:{name,published_date,img},image_url,title,thumbnail_url,total_view,details} = news;
+        const {author:{name,published_date,img},image_url,title,thumbnail_url,total_view,details,_id} = news;
+        console.log(typeof _id)
         const divContent = document.createElement('div');
         divContent.classList.add('gap-16','items-center','py-8','px-4','mx-auto','max-w-screen-xl','lg:grid','lg:grid-cols-2','lg:py-16','lg:px-6');
         divContent.innerHTML = `
@@ -71,26 +85,33 @@ const displayNewsByCategory = async (id)=>{
           class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6"
         >
           <dl
-            class="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white"
+            class="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-4 dark:text-white"
           >
             <div class="flex flex-col items-center justify-center">
               <dt class="mb-2 text-3xl md:text-4xl font-extrabold">
                 ${total_view ? total_view  : 'N/A'}
               </dt>
-              <dd class="font-light text-gray-500 dark:text-gray-400">
-                total view
+              <dd class="font-light text-gray-500 dark:text-gray-700">
+              <i class="fa-sharp fa-solid fa-eye"></i> total view
               </dd>
             </div>
-            <div class="flex flex-col items-center justify-center">
-
-            <div class="flex items-center space-x-4">
-            <img class="w-10 h-10 rounded-full" src="${img ? img : "../logo 2/logo.png"}" alt="">
-            <div class="font-medium dark:text-white">
-                <div>${name ? name : 'N/A'}</div>
-                <div class="text-sm text-gray-500 dark:text-gray-400">${published_date ? new Date(published_date).toLocaleDateString() : "N/A"}</div>
+            <div class="flex items-center justify-center">
+                <img class="w-20 h-20 rounded-full" src="${img ? img : "../logo 2/logo.png"}" alt="">
+                <div class="ml-5 font-medium dark:text-white">
+                    <div class="text-sky-200">${name ? name : 'N/A'}</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-700">${published_date ? new Date(published_date).toLocaleDateString() : "N/A"}</div>
+                </div>
             </div>
+            <div class="flex items-center ml-5">
+                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
             </div>
-
+            <div class='flex justify-center items-center' for="my-modal">
+                <label onclick="displayNewsDetails('${_id}')" for="my-modal" class="btn dark:bg-sky-700 text-white modal-button">Author Details</label>
+            </div>
             </div>
           </dl>
         </div>
@@ -112,6 +133,54 @@ const displayNewsByCategory = async (id)=>{
         newsContainer.appendChild(divContent)
 
     })
+}
+// ** Load autor data
+
+
+const displayNewsDetails = async (id)=>{
+  // ** Where to display 
+    const detailsContainer = document.getElementById('modal-body')
+    // ** load the news details data
+    const newsDetails = await dataLoader(`https://openapi.programming-hero.com/api/news/${id}`);
+    // ** excess individual news data 
+    const {data} = newsDetails;
+
+    data.forEach(news => {
+      const {others_info:{is_trending,is_todays_pick},author:{name,published_date,img},title,details,total_view} = news;
+
+      detailsContainer.innerHTML = `
+      <h3 class="font-bold text-lg">${title ? title : 'N/A'}</h3>
+      <p class="py-4">
+        ${details.length > 300 ? details.slice(0,300) + '...': details}
+      </p>
+      <div class="flex justify-between items-center">
+          <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
+          <dl class="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white">
+              <div class="flex flex-col items-center justify-center">
+                  <dt class="mb-2 text-3xl md:text-4xl font-extrabold">${total_view ? total_view  : 'N/A'}</dt>
+                  <dd class="font-light text-gray-500 dark:text-gray-200">
+                <i class="fa-sharp fa-solid fa-eye"></i> total view
+                </dd>
+              </div>
+          </dl>
+        </div>
+        <div class="flex items-center justify-center">
+                  <img class="w-20 h-20 rounded-full" src="${img ? img : "../logo 2/logo.png"}" alt="">
+                  <div class="ml-5 font-medium dark:text-white">
+                      <div class="text-sky-200">${name ? name : 'N/A'}</div>
+                      <div class="text-sm text-gray-500 dark:text-gray-700">${published_date ? new Date(published_date).toLocaleDateString() : "N/A"}</div>
+                  </div>
+    </div>
+      </div>
+      <div class="modal-action">
+        <label for="my-modal" class="btn">Okay</label>
+      </div>
+      
+      `
+
+    })
+    
+
 }
 
 displayCategories()
