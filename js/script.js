@@ -66,6 +66,35 @@ const displayNewsByCategory = async (id)=>{
         <p class="mb-4">
           ${details.length > 350 ? details.slice(0,350) + '...': details}
         </p>
+        <section class="bg-white dark:bg-gray-900">
+        <div
+          class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6"
+        >
+          <dl
+            class="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white"
+          >
+            <div class="flex flex-col items-center justify-center">
+              <dt class="mb-2 text-3xl md:text-4xl font-extrabold">
+                ${total_view ? total_view  : 'N/A'}
+              </dt>
+              <dd class="font-light text-gray-500 dark:text-gray-400">
+                total view
+              </dd>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+
+            <div class="flex items-center space-x-4">
+            <img class="w-10 h-10 rounded-full" src="${img ? img : "../logo 2/logo.png"}" alt="">
+            <div class="font-medium dark:text-white">
+                <div>${name ? name : 'N/A'}</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400">${published_date ? new Date(published_date).toLocaleDateString() : "N/A"}</div>
+            </div>
+            </div>
+
+            </div>
+          </dl>
+        </div>
+      </section>
       </div>
       <div class="grid grid-cols-2 gap-4 mt-8">
         <img
