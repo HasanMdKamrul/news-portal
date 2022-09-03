@@ -60,7 +60,7 @@ const displayNewsByCategory = async (id)=>{
 
     if (highestToLowestViewNews.length === 0) {
       dataFoundSection.classList.remove('hidden')
-      dataFound.innerText = "Data Not Avaiable"
+      dataFound.innerText = "No News Found"
     } else {
       dataFoundSection.classList.remove('hidden')
       dataFound.innerText = highestToLowestViewNews.length;
