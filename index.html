@@ -25,6 +25,8 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ** custom css -->
+    <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
     <!-- ** header section -->
@@ -66,13 +68,13 @@
         </div>
       </nav>
     </header>
-    <main>
+    <main class="dark:bg-slate-900">
       <!-- ** Show the news categories -->
       <section class="my-5">
         <!-- ** News categories -->
         <ul
           id="list-items"
-          class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-sky-200"
+          class="flex flex-wrap justify-center items-center p-6 text-gray-900 dark:text-sky-200"
         ></ul>
       </section>
       <!-- ** No data found section -->
@@ -124,6 +126,7 @@
     <!-- ** Flowbite script tag -->
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     <!-- ** custom script -->
+    <script src="./js/utilities.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>
