@@ -1,9 +1,9 @@
 // ** Blog html loaded
 
 document.getElementById('blog-Button').addEventListener('click',()=>{
-    window.location.href = "http://127.0.0.1:5500/blog.html";
+    window.location.href = "https://news-twenty-four-seven-kamrul.netlify.app/";
   });
   
   document.getElementById('news-button').addEventListener('click',()=>{
-    window.location.href = "http://127.0.0.1:5500/index.html";
+    window.location.href = "https://news-twenty-four-seven-kamrul.netlify.app/blog";
   });
